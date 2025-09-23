@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  addition:
+    build: ./addition
+    container_name: addition_service
+    expose:
+      - "5000"
+
+  subtraction:
+    build: ./subtraction
+    container_name: subtraction_service
+    expose:
+      - "5000"
+
+  multiplication:
+    build: ./multiplication
+    container_name: multiplication_service
+    expose:
+      - "5000"
+
+  division:
+    build: ./division
+    container_name: division_service
+    expose:
+      - "5000"
+
+  calculator1:
+    build: ./calculator1
+    container_name: calculator1_service
+    ports:
+      - "5000:5000"
+    depends_on:
+      - addition
+      - subtraction
+      - multiplication
+      - division
+
